@@ -1,0 +1,17 @@
+{
+  "name": "node-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "webpack",
+    "build:debug": "node --inspect-brk=5858 node_modules/webpack/bin/webpack",
+    "start": "http-server"
+  },
+  "dependencies": {
+    "http-server": "^13.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pikaday": "^1.8.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.8.0"
+  }
+}
