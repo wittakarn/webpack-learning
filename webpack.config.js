@@ -28,22 +28,10 @@ const config = {
     splitChunks: {
       cacheGroups: {
         default: false,
-        defaultVendors: {
-          name: 'vendor',
-          // We could have also set this property as: `splitChunks.minSize: 0`,
-          // since this property is inherited(by default) by the cache groups.
-          minSize: 0,
-
-          // Enforcing the minimum number of chunks that request a module.
-          minChunks: 2,
-
-          // Q: What kind of modules should new chunks contain?
-          // A: Modules that come from `node_modules`
-          test: /node_modules/,
-        },
+        defaultVendors: false,
         commons: {
           name: 'common',
-          minChunks: 3,
+          minChunks: 2,
           chunks: 'all',
         },
       },
