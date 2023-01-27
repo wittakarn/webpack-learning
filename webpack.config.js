@@ -1,4 +1,5 @@
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 isDefaultVendorsMatch = (module) => {
   const matchPaths = ['a.js', 'b.js'];
@@ -26,22 +27,18 @@ const config = {
     minimize: false,
     splitChunks: {
       cacheGroups: {
-        default: {
-          idHint: "",
-          reuseExistingChunk: true,
-          minChunks: 2,
-          priority: -20
+        commons: {
+          name: 'common',
+          minChunks: 3,
+          chunks: 'async',
         },
-        defaultVendors: {
-          idHint: "vendors",
-          reuseExistingChunk: true,
-          test: isDefaultVendorsMatch,
-          priority: -10
-        }
-      }
+      },
     },
   },
   context: __dirname,
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ],
 };
 
 module.exports = config;
